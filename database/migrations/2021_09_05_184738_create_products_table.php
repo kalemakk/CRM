@@ -15,6 +15,11 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->unique();
+            $table->string('description');
+            $table->enum('status',['Y','N']);
+            $table->foreignId('user_id')->constrained();
+
             $table->timestamps();
         });
     }

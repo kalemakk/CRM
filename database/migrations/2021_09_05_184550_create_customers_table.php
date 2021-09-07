@@ -23,6 +23,7 @@ class CreateCustomersTable extends Migration
             $table->string('street')->nullable();
             $table->string('nationality');
             $table->string('nin')->nullable();
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

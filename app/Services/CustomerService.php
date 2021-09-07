@@ -5,14 +5,16 @@ namespace App\Services;
 
 use App\Models\Customer;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class CustomerService
 {
-    public function getCustomers(): Collection
+    public function allCustomers()
     {
-        return DB::table('customers')->get();
+//        return DB::table('customers')->get();
+        return Customer::with('user')->get();
     }
 
     public function storeCustomer(
@@ -36,12 +38,13 @@ class CustomerService
                 'street' => $street,
                 'nationality' => $nationality,
                 'nin' => $nin,
+                'user_id' => Auth::user()->id,
             ]);
 
-            return view('dashboard.customers')->with('success', 'Customer Created Successfully.');
+            return redirect()->route('customers')->with('success', 'Customer Created Successfully.');
 
         } catch (\Exception $exception) {
-            return redirect()->route('customers')->with('error', 'Error ' . $exception->getMessage());
+            return redirect()->route('customers')->with('error', 'Error '.$exception->getMessage());
         }
     }
 

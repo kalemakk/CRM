@@ -17,7 +17,7 @@ class CustomerController extends Controller
     }
 
     public function getCustomers(){
-        $customers = $this->customerService->getCustomers();
+        $customers = $this->customerService->allCustomers();
         return view('dashboard.customers',compact('customers'));
     }
 

@@ -13,7 +13,7 @@ class StoreCustomer extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,7 +26,7 @@ class StoreCustomer extends FormRequest
         return [
             'name' => 'required|unique:customers|max:35',
             'date_of_birth' => 'required',
-            'email' => 'required|unique:customers|max:20',
+            'email' => 'required|unique:customers|max:30',
             'nationality' => 'required',
         ];
     }
