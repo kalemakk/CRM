@@ -17,7 +17,8 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->string('description');
-            $table->enum('status',['Y','N']);
+            $table->enum('status',['Y','N'])->default('Y');
+//            $table->foreignId('product_type')->constrained();
             $table->foreignId('user_id')->constrained();
 
             $table->timestamps();

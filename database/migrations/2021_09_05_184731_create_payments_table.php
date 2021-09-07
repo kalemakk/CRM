@@ -18,7 +18,9 @@ class CreatePaymentsTable extends Migration
             $table->foreignId('customer_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->text('amount');
-            $table->foreignId('product_id')->constrained();
+            $table->foreignId('order_id')->constrained();
+//            $table->foreignId('product_id')->constrained();
+            $table->foreignId('payment_method')->constrained();
             $table->timestamps();
         });
     }

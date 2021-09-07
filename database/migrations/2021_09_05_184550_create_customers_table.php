@@ -22,6 +22,8 @@ class CreateCustomersTable extends Migration
             $table->string('district');
             $table->string('street')->nullable();
             $table->string('nationality');
+            $table->string('main_phone_number')->nullable();
+            $table->string('other_phone_number')->nullable();
             $table->string('nin')->nullable();
             $table->foreignId('user_id')->constrained();
             $table->timestamps();

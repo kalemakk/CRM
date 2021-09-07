@@ -15,5 +15,9 @@ class Invoice extends Model
         'product_id',
     ];
 
+    public function customer(){
+        $this->belongsTo(Customer::class);
+    }
+
 
 }

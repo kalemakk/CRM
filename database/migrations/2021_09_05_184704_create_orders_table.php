@@ -17,11 +17,9 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->string('order_number');
-            $table->bigInteger('quantity');
             $table->text('total_amount');
-            $table->foreignId('product_id')->constrained();
             $table->foreignId('customer_id')->constrained();
-            $table->enum('status',['Y','N']);
+            $table->enum('status',['Y','N'])->default('Y');
             $table->timestamps();
         });
     }

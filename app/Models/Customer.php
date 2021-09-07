@@ -18,6 +18,8 @@ class Customer extends Model
         'district',
         'street',
         'nationality',
+        'main_phone_number',
+        'other_phone_number',
         'nin',
         'user_id'
     ];

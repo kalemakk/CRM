@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Services\ProductService;
 use Illuminate\Http\Request;
 
@@ -15,44 +16,34 @@ class ProductController extends Controller
     }
 
     public function getCustomers(){
-        $customers = $this->customerService->allCustomers();
-        return view('dashboard.customers',compact('customers'));
+        $products = $this->productService->allProducts();
+        return view('dashboard.products',compact('products'));
     }
 
-    public function showCustomer(Customer $customer){
-        return view('dashboard.customer',compact('customer'));
+    public function showProduct(Product $product){
+        return view('dashboard.product',compact('product'));
     }
 
-    public function storeCustomer(StoreCustomer $request){
+    public function storeProduct(Request $request){
 
-        return $this->customerService->storeCustomer(
+        return $this->productService->storeProduct(
             $request->name,
-            $request->date_of_birth,
-            $request->email,
-            $request->village,
-            $request->district,
-            $request->street,
-            $request->nationality,
-            $request->nin,
+            $request->description,
+            $request->status,
         );
     }
 
-    public function updateCustomer(StoreCustomer $request, Customer $customer){
-        return $this->customerService->updateCustomer(
-            $customer,
+    public function updateProduct(Request $request, Product $product){
+        return $this->productService->updateProduct(
+            $product,
             $request->name,
-            $request->date_of_birth,
-            $request->email,
-            $request->village,
-            $request->district,
-            $request->street,
-            $request->nationality,
-            $request->nin,
+            $request->description,
+            $request->status,
         );
     }
 
-    public function deleteCustomer(Customer $customer){
-        $customer->delete();
-        return view('dashboard.customers')->with('success','Customer Deleted Successfully.');
+    public function deleteCustomer(Product $product){
+        $product->delete();
+        return view('dashboard.products')->with('success','Product Deleted Successfully.');
     }
 }

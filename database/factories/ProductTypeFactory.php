@@ -22,7 +22,8 @@ class ProductTypeFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->name(),
+            'user_id' => rand(1,9),
         ];
     }
 }
