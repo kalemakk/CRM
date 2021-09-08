@@ -15,7 +15,7 @@ class ProductController extends Controller
         $this->productService = $productService;
     }
 
-    public function getCustomers(){
+    public function getProducts(){
         $products = $this->productService->allProducts();
         return view('dashboard.products',compact('products'));
     }
@@ -42,7 +42,7 @@ class ProductController extends Controller
         );
     }
 
-    public function deleteCustomer(Product $product){
+    public function deleteProduct(Product $product){
         $product->delete();
         return view('dashboard.products')->with('success','Product Deleted Successfully.');
     }
