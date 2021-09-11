@@ -69,13 +69,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('customers')}}" class="nav-link">
+                            <a href="{{route('products')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Products</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('customers')}}" class="nav-link">
+                            <a href="{{route('product-types')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Product Types</p>
                             </a>
@@ -93,7 +93,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('customers')}}" class="nav-link">
+                            <a href="{{route('orders')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Orders</p>
                             </a>
@@ -110,7 +110,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('customers')}}" class="nav-link">
+                            <a href="{{route('invoices')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Invoices</p>
                             </a>

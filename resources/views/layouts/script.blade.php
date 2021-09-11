@@ -57,3 +57,5 @@
     });
 </script>
 @stack('scripts')
+@livewireScripts
+

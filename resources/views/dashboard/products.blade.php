@@ -39,7 +39,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <button type="button" class="btn-primary btn-sm float-right" data-toggle="modal"
-                                                data-target="#add-customer">Add Product
+                                                data-target="#add-product">Add Product
                                         </button>
                                     </div>
                                 </div>
@@ -120,6 +120,20 @@
 
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <div class="form-group">
+                                        <label for="description">Price</label>
+                                        <input type="text"
+                                               class="form-control form-control-sm @error('price') is-invalid @enderror"
+                                               name="price" value="{{old('price')}}" placeholder="Enter Price">
+                                        @error('price')
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{$errors->first('price')}}</strong>
+                                    </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="form-group">
                                         <label for="description">Description</label>
                                         <textarea name="description" id="" cols="30" rows="2"
                                                   class="form-control form-control-sm @error('description') is-invalid @enderror"
@@ -132,91 +146,11 @@
                                         @enderror
                                     </div>
                                 </div>
+                            </div>
 
-
-                                <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <div class="form-group">
-                                        <label for="dob">Date of Birth</label>
-                                        <input type="date"
-                                               class="form-control form-control-sm @error('date_of_birth') is-invalid @enderror"
-                                               name="date_of_birth" value="{{old('date_of_birth')}}"
-                                               placeholder="Enter Date of Birth">
-                                        @error('date_of_birth')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{$errors->first('date_of_birth')}}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12 col-md-12 col-sm-12">
-                                <div class="form-group">
-                                    <label for="village">Village</label>
-                                    <input type="text"
-                                           class="form-control form-control-sm @error('village') is-invalid @enderror"
-                                           name="village" value="{{old('village')}}" placeholder="Enter Village" >
-                                    @error('village')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{$errors->first('village')}}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-lg-12 col-md-12 col-sm-12">
-                                <div class="form-group">
-                                    <label for="district">District</label>
-                                    <input type="text"
-                                           class="form-control form-control-sm @error('district') is-invalid @enderror"
-                                           name="district" value="{{old('district')}}" placeholder="Enter District" >
-                                    @error('district')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{$errors->first('district')}}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-lg-12 col-md-12 col-sm-12">
-                                <div class="form-group">
-                                    <label for="district">Street</label>
-                                    <input type="text"
-                                           class="form-control form-control-sm @error('street') is-invalid @enderror"
-                                           name="street" value="{{old('street')}}" placeholder="Enter Street" >
-                                    @error('street')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{$errors->first('street')}}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-lg-12 col-md-12 col-sm-12">
-                                <div class="form-group">
-                                    <label for="nationality">Nationality</label>
-                                    <input type="text"
-                                           class="form-control form-control-sm @error('nationality') is-invalid @enderror"
-                                           name="nationality" value="{{old('nationality')}}" placeholder="Enter Nationality" >
-                                    @error('nationality')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{$errors->first('nationality')}}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-lg-12 col-md-12 col-sm-12">
-                                <div class="form-group">
-                                    <label for="nationality">NIN</label>
-                                    <input type="text"
-                                           class="form-control form-control-sm @error('nin') is-invalid @enderror"
-                                           name="nin" value="{{old('nin')}}" placeholder="Enter NIN" >
-                                    @error('nin')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{$errors->first('nin')}}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
                             <div class="btn-group">
                                 <button type="reset" class="btn btn-warning">Clear Form</button>
-                                <button type="submit" class="btn btn-primary">Save Customer</button>
+                                <button type="submit" class="btn btn-primary">Save Product</button>
                             </div>
                         </div>
                     </div>
@@ -268,7 +202,7 @@
     <script>
         window.addEventListener("load", function () {
             @if(Session::has('errors'))
-            $('#add-customer').modal({show: true})
+            $('#add-product').modal({show: true})
             @endif
         });
     </script>
